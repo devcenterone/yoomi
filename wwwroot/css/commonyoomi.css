@@ -1,0 +1,958 @@
+@import url('facebox-yoomi.css');
+@font-face {
+	font-family: 'SkirtRgRegular';
+	src: url('skirt_rg-webfont.eot');
+	src: url('skirt_rg-webfont.eot?#iefix') format('embedded-opentype'),
+	url('skirt_rg-webfont.woff') format('woff'),
+	url('skirt_rg-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'SkirtLtRegular';
+	src: url('skirt_lt-webfont.eot');
+	src: url('skirt_lt-webfont.eot?#iefix') format('embedded-opentype'),
+	url('skirt_lt-webfont.woff') format('woff'),
+	url('skirt_lt-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+
+}
+/* --- General reset --- */
+* {padding: 0; margin: 0;}
+a {text-decoration: none; color: #e69600; outline: none; font-weight: bold;}
+a:hover {text-decoration: underline;}
+a img {border: none;}
+li {list-style: none outside; display: block;}
+
+/* --- General classes --- */
+.cleaner {display: block; height: 1px; clear: both; overflow: hidden; font-size: 1px;}
+
+/* --- Typography --- */
+body,
+form, input, label, select, option, textarea {font: 12px Arial, Helvetica, sans-serif;}
+
+/* --- Layout --- */
+body {background: #e5e1da url('images/body_bgrd.gif') center top repeat-y; color: #000;}
+
+#wrapper {background: url('images/body_gradient.gif') left top repeat-x;}
+#page_container {width: 965px; margin: 0 auto; background: #e5e1da url('images/body_gradient.gif') left top repeat-x;}
+#header {height: 151px; position: relative;}
+
+/* --- Header and Navigation --- */
+#header h1 {width: 252px; height: 151px; background: url('images/logo_dark.gif') left top no-repeat; position: relative; z-index: 200; margin: 0;}
+#header h1 a {display: block; width: 100%; height: 100%; overflow: hidden;  text-indent: -1200px;}
+
+#header a {display: block; color: #6d6462; float: left; font-weight: bold;}
+
+/*#nav {width: 684px; height: 42px; position: absolute; top: 43px; left: 277px; background: url('images/nav_bgrd_dark.gif') right top no-repeat;}*/
+#nav {width: 684px; height: 42px; position: absolute; top: 43px; left: 277px; background: url('images/nav_bgrd_darksp_short.gif') right top no-repeat;}
+#nav li {height: 42px; float: left; background: url('/images/nav_li_separator.gif') right bottom repeat-y;}
+#nav li.first {background: url('/images/nav_li_left_bgrd.gif') left top no-repeat;}
+#nav li.last {padding: 0; background: none;}
+#nav li a {height: 42px; line-height: 42px; text-indent: -1200px; overflow: hidden;}
+#nav li a:hover {text-decoration: none;}
+
+#nav_why_yoomi a                        {width: 109px;}
+#nav_why_yoomi a:hover,
+#nav_why_yoomi.selected a         {background: url('images/nav_bgrd_darksp.gif') left -42px no-repeat;}
+
+#nav_how_to_use a                        {width: 110px;}
+#nav_how_to_use a:hover,
+#nav_how_to_use.selected a        {background: url('images/nav_bgrd_darksp.gif') -110px -42px no-repeat;}
+
+#nav_clever_bit a                        {width: 104px;}
+#nav_clever_bit a:hover,
+#nav_clever_bit.selected a        {background: url('images/nav_bgrd_darksp.gif') -220px -42px no-repeat;}
+
+#nav_support a           {width: 101px;}
+#nav_support a:hover,
+#nav_support.selected a  {background: url('images/nav_bgrd_darksp.gif') -335px -42px no-repeat;}
+
+#nav_reviews a           {width: 115px;}
+#nav_reviews a:hover,
+#nav_reviews.selected a  {background: url('images/nav_bgrd_darksp.gif') -323px -42px no-repeat;}
+
+#nav_yoomi_story a                        {width: 114px;}
+#nav_yoomi_story a:hover,
+#nav_yoomi_story.selected a        {background: url('images/nav_bgrd_darksp.gif') -437px -42px no-repeat;}
+
+#nav_news_and_views a                {width: 132px;}
+#nav_news_and_views a:hover,
+#nav_news_and_views.selected a        {background: url('images/nav_bgrd_darksp.gif') -553px -42px no-repeat;}
+
+/*#nav_products a                                {width: 99px;}*/
+
+#top_nav {height: 23px; position: absolute; top: 0; right: 0;}
+#top_nav li {float: left;}
+#top_nav li a {display: block; padding: 10px 15px 0 10px; line-height: 12px;  border-left: 1px solid #c9c3bc; font-weight: normal;}
+#top_nav li a:hover {color: #000; border-color: #000; text-decoration: none;}
+#top_nav li.selected a {font-weight: bold;}
+
+/* --- Footer --- */
+#footer {background: url('images/footer_bgrd.gif') left top no-repeat; color: #FFF; font-weight: bold; line-height: 12px; margin-top: 10px;}
+#footer span {float: left; padding: 10px 15px 0 10px;}
+#footer a {float: left; color: #FFF; padding: 10px 15px 0 10px; border-left: 1px solid #ffdc9d; margin-bottom: 25px;}
+#footer a.selected {color: #6d6462;}
+#footer a.first {border: none; padding-left: 15px;}
+#privacy {font-size: 10px; color:#999; margin: 10px 3px 10px 3px;}
+#privacy p strong {color: #666;}
+
+
+
+/* --- Home stlyes --- */
+.home #wrapper,
+.home #page_container {background: #e5e1da;}
+.home #header {}
+.home #header h1 {background: url('images/logo.gif') left top no-repeat;}
+.home #nav {background: url('images/nav_bgrd_bright_short.gif') right top no-repeat;}
+
+.home #page_content {margin-top: -66px; background: url('images/home_page-content_bgrd.jpg') left top repeat-x;}
+.home #page_content .index {height: 450px; position: relative;}
+.home #page_content .index p.news {position: absolute; right: 0; bottom: 0; color: #6f6b66; font-weight: bold;}
+.home #page_content .index p.news a.more {padding-right: 8px; background-position: right 5px;}
+.home #page_content .index p.text {width: 270px; position: absolute; left: 93px; top: 260px; color: #6f6b66; font-weight: bold; font-size: 14px; line-height: 20px;}
+.home #page_content .index a.bottle {display: block; width: 520px; height: 390px; overflow: hidden; text-indent: -9999px; position: absolute; top: 20px; right: 80px;}
+
+.home .mod {width: 25%; height: 195px; overflow: hidden; float: left; border-right: 1px solid #e5e1da;}
+.home .mod .cnt {height: 155px; padding-left: 10px;}
+.home .mod .cnt a.hide {display: block; width: 100%; height: 100%; text-indent: -1000px; overflow: hidden;}
+
+/* --- Content elements --- */
+p {padding-bottom: 20px;}
+.inn .post .content h3 {margin-bottom: 0.5em;}
+a.more {}
+a.download {display: block; height: 25px; line-height: 20px; padding: 0 0 0 28px; background: url('images/bullet_download.gif') left top no-repeat; margin-bottom: 20px; font-weight: bold;}
+a.download:hover {text-decoration: underline;}
+
+ul.one_two_tree li {padding-left: 26px; margin-bottom: 5px; line-height: 20px;}
+ul.one_two_tree li.first         {background: url('images/login_bullet_first.gif')         left center no-repeat;}
+ul.one_two_tree li.second         {background: url('images/login_bullet_second.gif') left center no-repeat;}
+ul.one_two_tree li.third         {background: url('images/login_bullet_third.gif')         left center no-repeat;}
+
+.box                                                         {background: #f2f0ed; margin-bottom: 20px; color: #6d6462; font-size: 13px; line-height: 15px;}
+.box .left                                                 {background: url('images/box_left.gif') left top repeat-y;}
+.box .right                                         {background: url('images/box_right.gif') right top repeat-y;}
+.box .bottom                                         {background: url('images/box_bottom.gif') left bottom repeat-x;}
+.box .top_left                                         {background: url('images/box_top_left.gif') left top no-repeat;}
+.box .top_right                                 {background: url('images/box_top_right.gif') right top no-repeat;}
+.box .bottom_left                                 {background: url('images/box_bottom_left.gif') left bottom no-repeat;}
+.box .bottom_right                                 {background: url('images/box_bottom_right.gif') right bottom no-repeat;}
+
+
+.box_white_top                                  {background: #f9f8f6; margin-bottom: 20px; color: #6d6462; font-size: 13px; line-height: 15px;}
+.box_white_top .left                         {background: url('images/box_white_left.gif') left top repeat-y;}
+.box_white_top .right                         {background: url('images/box_white_right.gif') right top repeat-y;}
+.box_white_top .bottom                         {background: url('images/box_white_bottom.gif') left bottom repeat-x;}
+.box_white_top .top_left                 {background: url('images/box_white_top_left_dark.gif') left top no-repeat;}
+.box_white_top .top_right                 {background: url('images/box_white_top_right_dark.gif') right top no-repeat;}
+.box_white_top .bottom_left         {background: url('images/box_white_bottom_left.gif') left bottom no-repeat;}
+.box_white_top .bottom_right         {background: url('images/box_white_bottom_right.gif') right bottom no-repeat;}
+
+.box_white                                          {background: #f9f8f6; margin-bottom: 20px; color: #6d6462; font-size: 13px; line-height: 15px;}
+.box_white .left                                 {background: url('images/box_white_left.gif') left top repeat-y;}
+.box_white .right                                 {background: url('images/box_white_right.gif') right top repeat-y;}
+.box_white .bottom                                 {background: url('images/box_white_bottom.gif') left bottom repeat-x;}
+.box_white .top_left                         {background: url('images/box_white_top_left.gif') left top no-repeat;}
+.box_white .top_right                         {background: url('images/box_white_top_right.gif') right top no-repeat;}
+.box_white .bottom_left                 {background: url('images/box_white_bottom_left.gif') left bottom no-repeat;}
+.box_white .bottom_right                 {background: url('images/box_white_bottom_right.gif') right bottom no-repeat;}
+
+.box .inn,
+.box_white .inn,
+.box_white_top .inn                         {padding: 10px 12px 15px 12px; overflow: hidden; position: relative;}
+
+.box.np .inn,
+.box_white.np .inn,
+.box_white_top.np .inn                         {padding: 0 2px 4px 2px; overflow: hidden; position: relative;}
+
+.quote                 {text-indent: 16px; background: url('images/open_quotes.gif') left top no-repeat;}
+.quote span        {padding-right: 16px; background: url('images/close_quotes.gif') right bottom no-repeat;}
+
+.mod {float: left;}
+.mod .hdr {margin: 11px 0 15px 0; padding-left: 10px;}
+.mod .cnt {padding-left: 10px;}
+
+.mod .hdr h3 {height: 19px; text-indent: -1200px; overflow: hidden;}
+
+.mod .cnt .inn_nav {border-top: 1px solid #dbd7d3; margin-left: -10px;}
+.mod .cnt .inn_nav li a {display: block; font-size: 14px; line-height: 30px; border-bottom: 1px solid #dbd7d3; color: #6d6462; background: url('images/bullet_inner_nav_inactive.gif') right center no-repeat; padding-left: 10px; font-weight: bold;}
+.mod .cnt .inn_nav li a:hover,
+.mod .cnt .inn_nav li.ui-tabs-selected a {color: #e69600; background: url('images/bullet_inner_nav_active.gif') right center no-repeat; text-decoration: none;}
+
+.mod#image .cnt {padding: 10px 0;}
+
+.mod#yoomi_mums {width: 324px; border-right: 1px solid #e5e1da;}
+.mod#yoomi_mums2 {width: 324px; border-right: 1px solid #e5e1da;}
+.mod#yoomi_mums h3 {height: 33px; background: url('images/mod_hdr_yoomi-mums-and-dads-share-their-views.gif') left top no-repeat;}
+.mod#yoomi_mums2 h3 {height: 33px; background: url('images/mod_hdr_alumni.jpg') left top no-repeat;}
+.mod#yoomi_mums .cnt {padding: 0 10px 20px 10px;}
+.mod#yoomi_mums2 .cnt {padding: 0 10px 20px 20px;}
+.mod#yoomi_mums .quote {padding-left: 16px; text-indent: 0px; background: url('images/open_quotes.gif') left top no-repeat;}
+.mod#yoomi_mums .quote span {padding-right: 16px; background: url('images/close_quotes.gif') right bottom no-repeat;}
+.mod#yoomi_mums img {display: block; float: right; margin-top: -35px;}
+
+.mod#cutting_edge {width: 324px; border-right: 1px solid #e5e1da;}
+.mod#cutting_edge .hdr {margin-bottom: 0;}
+.mod#cutting_edge h3 {height: 26px; background: url('images/mod_hdr_cutting_edge.gif') left top no-repeat;}
+.mod#cutting_edge .cnt {padding: 0 10px 0 10px;}
+
+.mod#story {width: 530px; }
+.mod#story .hdr {margin-bottom: 0;}
+.mod#story h3 {height: 27px; background: url('images/mod_hdr_story.gif') left top no-repeat;}
+.mod#story .cnt {padding: 0 10px 0 10px;}
+
+#support_content td { vertical-align: top; }
+#support_content li { margin-left: 10px; margin-bottom:5px; }
+#support_content img { margin-bottom: 20px; }
+#support_content h3 { font-family: 'SkirtRgRegular',Arial,Helvetica,sans-serif; font-size: 23px; font-weight: normal; color:#605656; margin-bottom: 15px;}
+#support_content ul { margin-bottom: 25px;}
+
+.support_item { margin-left:275px; margin-bottom: 20px; margin-top: 10px; margin-right:15px; display:none; }
+.support_item h3 { font-family: 'SkirtRgRegular',Arial,Helvetica,sans-serif; font-size: 22px; color:#e69600; margin-bottom: 22px;}
+.support_item h4 { font-family: 'SkirtRgRegular',Arial,Helvetica,sans-serif; font-size: 18px; color:#6d6462; margin-bottom: 15px; }
+.support_item h6 { font-family: 'SkirtRgRegular',Arial,Helvetica,sans-serif; font-size: 14px; font-weight: normal; color:#6d6462; margin-bottom: 8px;}
+.support_item>ul, .support_item>ol { margin-left:35px; margin-bottom: 20px; }
+.support_item ol>li { display: list-item; list-style-type: decimal; margin-bottom: 5px; }
+.support_item ul>li { display: list-item; list-style-type: square; margin-bottom: 5px; color:#e69600; }
+.support_item ul>li>span { color:#6d6462; }
+.support_item blockquote { margin-left:10px; }
+.support_item blockquote>a { display:block; margin-bottom: 6px; }
+.support_item blockquote.ml { margin-left:25px; }
+
+.support_item>table {
+	margin-top: 25px; margin-bottom: 25px;
+	border-color: #e69600; border-width: 2px; border-style: solid;
+	-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #CCC; -webkit-box-shadow: 2px 2px 3px #CCC; box-shadow: 2px 2px 3px #CCC;
+}
+.support_item th {
+	padding: 6px 0 6px 13px;
+	text-align: left;
+	font-family: 'SkirtRgRegular',Arial,Helvetica,sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color:#FFF;
+	background-color: #e69600;
+}
+.support_item td.tdy {
+	padding: 4px 0 4px 13px;
+	text-align: left;
+	vertical-align: middle;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFF;
+	background-color: #f0b000;
+	border-top-color: #FFF; border-top-width: 1px; border-top-style: solid;
+	border-right-color: #FFF; border-right-width: 2px; border-right-style: solid;
+}
+.support_item .rtw { border-right-color: #FFF; border-right-width: 2px; border-right-style: solid; }
+.support_item td { vertical-align: top; }
+.support_item td.tdm { vertical-align: middle; padding-left: 14px; }
+.support_item td>ul { margin:15px 7px 15px 30px; }
+
+.support_item .yl { font-family: 'SkirtRgRegular',Arial,Helvetica,sans-serif; font-size: 15px; color:#e69600; }
+
+.mod#questions {width: 324px; height: 195px; border-right: 1px solid #e5e1da;}
+.mod#questions .hdr {margin-bottom: 0;}
+.mod#questions h3 {height: 26px; background: url('images/mod_hdr_questions.gif') left top no-repeat;}
+.mod#questions .cnt {padding: 0 10px 0 10px;}
+
+.mod#see_how_it_all_fits {width: 324px; border-right: 1px solid #e5e1da;}
+.mod#see_how_it_all_fits .hdr {margin-bottom: 0;}
+.mod#see_how_it_all_fits h3 {height: 21px; background: url('images/mod_hdr_see-how-it-all-fits-together.gif') left top no-repeat;}
+
+.mod#our_midwife {width: 323px;}
+.mod#our_midwife h3 {height: 15px; background: url('images/mod_hdr_our-midwifes-views.gif') left top no-repeat;}
+.mod#our_midwife .cnt {padding: 0 14px 10px 10px;}
+
+.mod#meet_our_engineers {width: 323px;}
+.mod#meet_our_engineers .hdr {margin-bottom: 5px;}
+.mod#meet_our_engineers h3 {height: 21px; background: url('images/mod_hdr_meet_our_engineers.gif') left top no-repeat;}
+.mod#meet_our_engineers .cnt {padding: 0 14px 10px 10px; font-size: 120%; line-height: 120%;}
+
+.mod#when_to_replace {width: 323px;}
+.mod#when_to_replace h3 {height: 21px; background: url('images/mod_hdr_when-to-replace-your-warmer.gif') left top no-repeat;}
+.mod#when_to_replace .cnt ul {padding-right: 20px;}
+.mod#when_to_replace .cnt ul li {font-size: 13px; line-height: 15px; padding: 0 0 10px 13px; background: url('images/bullet_small_circle_bright.gif') left 4px no-repeat;}
+
+.mod.tab_holder {width: 630px;}
+.mod.tab_holder .hdr h3 {height: 29px;}
+.mod.tab_holder .cnt .image {width: 400px; float: left;}
+.mod.tab_holder .cnt .holder {width: 220px; float: left;}
+.mod.tab_holder .cnt a {font-weight: bold;}
+.mod.tab_holder .cnt ul.checklist {margin-left: -16px;}
+.mod.tab_holder .cnt ul.checklist li {padding: 0 0 0 17px; line-height: 20px;  font-weight: bold;  background: url('images/bullet_check_orange.gif') left 5px no-repeat;}
+
+.mod#our_videos .hdr h3,
+.mod#ways_to_use .hdr h3    {text-indent:0;font-family:"SkirtRgRegular";font-size:24px;color:#FEB73B;line-height:27px;   }
+
+.mod#our_videos .cnt h3     {text-indent:0;font-family:"SkirtRgRegular";font-size:18px;color:#FEB73B;line-height:30px;margin:20px 0 10px;}
+.mod#our_videos .cnt p      {   padding: 5px;   }
+.mod#our_videos .cnt ul     {   overflow: auto;   }
+.mod#our_videos .cnt ul li  {   width: 230px; margin: 15px 15px 5px 45px; text-align: center;   }
+.mod#our_videos .cnt ul li a{   margin-right: 0;    }
+
+.mod#yoomi_bottle h3 {background: url('images/text_header_yoomi-5oz-bottle-and-warmer.gif') left top no-repeat;}
+.mod#warmer h3 {background: url('images/mod_hdr_warmer.gif') left 5px no-repeat;}
+.mod#pod h3 {background: url('images/text_header_pod.gif') left top no-repeat;}
+.mod#easy_to_hold h3 {background: url('images/mod_hdr_easy-to-hold-bottle.gif') left top no-repeat;}
+.mod#naturally_shaped h3 {background: url('images/mod_hdr_naturally-shaped-teat.gif') left top no-repeat;}
+
+.mod#how_to_use_content .cnt {}
+
+.mod#how_to_recharge_content .cnt img {display: block; margin-top: 20px;}
+.mod#how_to_recharge_content .cnt ul.checklist {margin: 0;}
+.mod#how_to_recharge_content .cnt ul.checklist li {padding-right: 20px;}
+
+.mod#how_to_assemble_content {}
+
+.mod#how_yoomi_prevents_colic h3 {background: url('images/mod_hdr_how-yoomi-helps-prevent-colic.gif') left top no-repeat;}
+.mod#how_yoomi_prevents_colic .cnt .holder {padding-top: 130px;}
+
+.mod#how_the_warmer_works h3 {background: url('images/mod_hdr_how-the-warmer-works.gif') left top no-repeat;}
+.mod#how_the_warmer_works .cnt .holder {padding-top: 60px;}
+
+.mod#warmer_safe h3 {background: url('images/mod_hdr_the-contents-of-warmer-safe.gif') left top no-repeat;}
+.mod#warmer_safe .cnt .holder {padding-top: 80px;}
+
+.mod#can_not_overheat h3 {background: url('images/mod_hdr_yoomi-can-not-overheat.gif') left top no-repeat;}
+.mod#can_not_overheat .cnt .holder {padding-top: 90px;}
+
+
+
+
+.mod#why_yoomi_content         {width: 312px;}
+.mod#why_yoomi_content h3 {height: 27px; background: url('images/text_header_why-yoomi.gif') left top no-repeat;}
+.mod#why_yoomi_content .cnt        {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+
+.mod#clever_bit_content {width: 312px;}
+.mod#clever_bit_content h3 {height: 27px; background: url('images/mod_hdr_clever-bit_big.gif') left top no-repeat;}
+.mod#clever_bit_content .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+.mod#clever_bit_content .cnt p {font-size: 13px; line-height: 15px; padding: 0 10px 10px 0;}
+
+.mod#support_left {width: 312px;}
+.mod#support_left h3 {height: 27px; background: url('images/mod_hdr_support_big.gif') left top no-repeat;}
+.mod#support_left .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+.mod#support_left .cnt p {font-size: 13px; line-height: 15px; padding: 0 10px 10px 0;}
+
+.mod#where_to_buy_content {width: 312px;}
+.mod#where_to_buy_content h3 {height: 27px; background: url('images/text_header_where-to-buy.gif') left top no-repeat;}
+.mod#where_to_buy_content .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+.mod#where_to_buy_content .cnt .inn_nav {margin-top: 10px;}
+
+.mod#inspired_by {width: 322px;}
+.mod#inspired_by h3 {height: 57px; background: url('images/mod_hdr_inspired-by.gif') left top no-repeat;}
+.mod#inspired_by .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+
+.mod#new_8oz_bottle {width: 629px; height: 190px; background: url('images/new_8oz_bottle.jpg') right bottom no-repeat;}
+.mod#new_8oz_bottle .hdr {margin-bottom: 0;}
+.mod#new_8oz_bottle h3 {height: 21px; background: url('images/mod_hdr_new-8oz-bottle-coming-soon.gif') left top no-repeat;}
+.mod#new_8oz_bottle .cnt {font-size: 17px; line-height: 20px; padding: 0 320px 0 10px;}
+
+.mod#how_to_use_sidebar {width: 312px;}
+.mod#how_to_use_sidebar h3 {height: 27px; background: url('images/text_header_how-to-use.gif') left top no-repeat;}
+.mod#how_to_use_sidebar .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+.mod#how_to_use_sidebar .cnt ul.one_two_tree {margin-bottom: 20px;}
+.mod#how_to_use_sidebar .cnt ul.one_two_tree li {font-size: 16px; line-height: 25px; font-weight: bold;}
+.mod#how_to_use_sidebar .cnt ul.one_two_tree li.first                 {background: url('images/login_bullet_first_bright.gif')         left center no-repeat;}
+.mod#how_to_use_sidebar .cnt ul.one_two_tree li.second                 {background: url('images/login_bullet_second_bright.gif') left center no-repeat;}
+.mod#how_to_use_sidebar .cnt ul.one_two_tree li.third                 {background: url('images/login_bullet_third_bright.gif')         left center no-repeat;}
+
+.mod#meet_the_team_sidebar {width: 312px;}
+.mod#meet_the_team_sidebar h3 {height: 27px; background: url('images/text_header_how-to-use.gif') left top no-repeat;}
+.mod#meet_the_team_sidebar .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+
+.mod#reviews_sidebar {width: 312px;}
+.mod#reviews_sidebar h3 {height: 27px; background: url('images/mod_hdr_reviews.gif') left top no-repeat;}
+.mod#reviews_sidebar .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+.mod#reviews_sidebar #awards_heading h3 { height: 60px; background: url('images/mod_hdr_awards2.gif') left top no-repeat; margin-left: -10px; }
+
+.mod#thetalk_sidebar { width: 313px; }
+.mod#thetalk_sidebar h3 {height: 27px; background: url('/images/mod_hdr_talk.gif') left top no-repeat;}
+
+.mod#awards_sidebar {width: 312px;}
+.mod#awards_sidebar h3 {height: 60px; background: url('images/mod_hdr_awards2.gif') left top no-repeat;}
+.mod#awards_sidebar .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+
+
+
+.mod#in_the_press_sidebar {width: 312px;}
+.mod#in_the_press_sidebar h3 {height: 27px; background: url('images/mod_hdr_in_the_press.gif') left top no-repeat;}
+.mod#in_the_press_sidebar .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+
+.mod#where_to_buy_sidebar {width: 312px;}
+.mod#where_to_buy_sidebar h3 {height: 27px; background: url('images/text_header_where-to-buy.gif') left top no-repeat;}
+.mod#where_to_buy_sidebar .cnt {font-size: 13px; line-height: 15px; padding: 0 10px 30px 10px;}
+
+.stores .mod {width: 620px;}
+.stores .mod .info p {line-height: 18px;}
+.stores .mod .cnt img {display: block; float: left; margin-bottom: 20px;}
+.stores .mod .cnt .info {width: 170px; float: left; margin-left: 20px; font-size: 13px; line-height: 15px;}
+.stores .mod h3 {height: 27px;}
+.stores .mod#john_lewis_oxford_street h3 {background: url('images/text_header_john_lewis_oxford_street.gif') left top no-repeat;}
+.stores .mod#london_peter_jones h3 {background: url('images/text_header_london_peter_jones.gif') left top no-repeat;}
+.stores .mod#john_lewis_brent_cross h3 {background: url('images/text_header_john_lewis_brent_cross.gif') left top no-repeat;}
+.stores .mod#john_lewis_kingston h3 {background: url('images/text_header_john_lewis_kingston.gif') left top no-repeat;}
+.stores .mod#john_lewis_bluewater h3 {background: url('images/text_header_john_lewis_bluewater.gif') left top no-repeat;}
+.stores .mod#john_lewis_bristol h3 {background: url('images/text_header_john_lewis_bristol.gif') left top no-repeat;}
+.stores .mod#john_lewis_cribbs_causeway h3 {background: url('images/text_header_john_lewis_cribbs_causeway.gif') left top no-repeat;}
+.stores .mod#john_lewis_trafford h3 {background: url('images/text_header_john_lewis_trafford.gif') left top no-repeat;}
+.stores .mod#john_lewis_southampton h3 {background: url('images/text_header_john_lewis_southampton.gif') left top no-repeat;}
+.stores .mod#john_lewis_welwyn h3 {background: url('images/text_header_john_lewis_welwyn.gif') left top no-repeat;}
+.stores .mod#john_lewis_solihull h3 {background: url('images/text_header_john_lewis_solihull.gif') left top no-repeat;}
+.stores .mod#john_lewis_cheadle h3 {background: url('images/text_header_john_lewis_cheadle.gif') left top no-repeat;}
+.stores .mod#john_lewis_edinburgh h3 {background: url('images/text_header_john_lewis_edinburgh.gif') left top no-repeat;}
+.stores .mod#john_lewis_reading h3 {background: url('images/text_header_john_lewis_reading.gif') left top no-repeat;}
+.stores .mod#john_lewis_cambridge h3 {background: url('images/text_header_john_lewis_cambridge.gif') left top no-repeat;}
+.stores .mod#john_lewis_nottingham h3 {background: url('images/text_header_john_lewis_nottingham.gif') left top no-repeat;}
+.stores .mod#john_lewis_peterborough h3 {background: url('images/text_header_john_lewis_peterborough.gif') left top no-repeat;}
+.stores .mod#john_lewis_watford h3 {background: url('images/text_header_john_lewis_watford.gif') left top no-repeat;}
+.stores .mod#john_lewis_milton_keynes h3 {background: url('images/text_header_john_lewis_milton_keynes.gif') left top no-repeat;}
+.stores .mod#john_lewis_glasgow h3 {background: url('images/text_header_john_lewis_glasgow.gif') left top no-repeat;}
+
+
+.mod#yoomi_story_video {width: 620px;}
+.mod#yoomi_story_video .cnt        {padding: 10px;}
+
+.mod#why_yoomi {width: 235px; background: url('images/mod_content_why-yoomi.jpg') right 11px no-repeat;}
+.mod#why_yoomi h3 {background: url('images/mod_hdr_why-yoomi.gif') left top no-repeat;}
+
+.mod#how_to_use {width: 240px; background: url('/Videos/how_to_one_th.jpg') 50% 40px no-repeat;}
+.mod#how_to_use h3 {background: url('images/mod_hdr_how-to-use.gif') left top no-repeat;}
+
+.mod#clever_bit        {width: 240px; background: url('images/mod_content_clever-bit.jpg') right 11px no-repeat;}
+.mod#clever_bit h3 {background: url('images/mod_hdr_clever-bit.gif') left top no-repeat;}
+
+.mod#buy_yoomi        {width: 240px; background: url('images/mod_content_buy-yoomi.jpg') right 11px no-repeat;}
+.mod#buy_yoomi h3 {background: url('images/mod_hdr_buy-yoomi.gif') left top no-repeat;}
+
+.mod#press_yoomi        {width: 240px; background: url('images/mod_content_press-yoomi.jpg') right 11px no-repeat;}
+.mod#press_yoomi h3 {background: url('images/mod_hdr_in_the_press2.gif') left top no-repeat;}
+
+.mod#yoomi_tamba        { width: 242px; border: none; background: url('images/mod_content_extra_upload.jpg') no-repeat 2px 25px; }
+.mod#yoomi_tamba h3 {background: url('images/mod_hdr_extra.gif') left top no-repeat;}
+
+#dfronttabs .mod .hdr h3 {
+  height: 24px;
+  overflow: visible;
+  text-indent: 8px;
+  font-family: SkirtRgRegular;
+  text-transform: lowercase;
+  font-size: 20px;
+  color: #676767;
+  /* transform: scale(1.05,1.4); */
+  opacity: 0.99;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.02px;
+  background-image: none!important;
+  font-weight: normal;
+}
+/*
+#dfronttabs .mod .hdr h3 {
+	height: 19px;
+	overflow: hidden;
+	text-indent: 8px;
+	font-family: SkirtRgRegular;
+	text-transform: lowercase;
+	font-size: 17px;
+	color: #868585;
+	transform: scale(1.05,1.4);
+	opacity: 0.95;
+	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+	letter-spacing: 0px;
+	background-image: none!important;
+}
+ */
+/*
+#dfronttabs .mod .hdr h3 {
+	 height: 19px;  overflow: hidden;
+	 text-indent: 5px;
+	 font-family: SkirtRgRegular;
+	 text-transform: lowercase;
+	 font-size: 15px;
+	 color: #888585;
+	 transform: scale(1,1.4);
+	 opacity: 0.98;
+	 text-shadow: 0 0 1px rgba(0,0,0,0.2);
+	 letter-spacing: 1px;
+	 background-image: none!important;
+}
+
+/*
+.mod#yoomi_tamba        {width: 242px; border: none; background: url('images/mod_content_royal-offer.jpg') no-repeat 22px 25px;}
+.mod#yoomi_tamba h3 {background: url('images/mod_hdr_royal_offer.gif') left top no-repeat;}
+.mod#yoomi_tamba        {width: 236px; border: none; background: url('images/mod_content_lbp-awards.jpg') no-repeat 12px 24px;}
+.mod#yoomi_tamba h3 {background: url('images/mod_hdr_vote_us.gif') left top no-repeat;}
+.mod#yoomi_tamba        {width: 236px; border: none; background: url('images/mod_content_pod-yoomi.jpg') right 11px no-repeat;}
+.mod#yoomi_tamba h3 {background: url('images/mod_hdr_pod_is_here.gif') left top no-repeat;}
+*/
+
+.mod#gift_sets        {width: 240px; background: url('images/mod_content_buy-yoomi.jpg') right 11px no-repeat;}
+.mod#gift_sets h3 {background: url('images/mod_hdr_our_gift_sets.gif') left top no-repeat;}
+
+.mod#yoomi_story {width: 230px; border: none;}
+.mod#yoomi_story h3 {background: url('images/mod_hdr_yoomi-story.gif') left top no-repeat;}
+
+.mod#yoomi_coffee {width: 236px; border: none;}
+.mod#yoomi_coffee h3 {background: url('images/mod_hdr_yoomi-coffee.gif') left top no-repeat;}
+
+/*.home .bottom_right .mod .hdr h3    {text-indent: 0; font-family: "SkirtRgRegular"; font-size:16px;background-image:none !important;}*/
+
+.mod#meet_the_team {width: 240px;}
+.mod#meet_the_team h3 {background: url('images/mod_hdr_meet-the-yoomi-team.gif') left top no-repeat;}
+
+.mod#in_the_press {width: 260px;}
+.mod#in_the_press h3 {background: url('images/mod_hdr_in_the_press.gif') left top no-repeat;}
+
+.mod#extend_the_family {width: 710px; border-left: 1px solid #e5e1da;}
+.mod#extend_the_family h3 {background: url('images/mod_hdr_extend-our-family.gif') left top no-repeat;}
+.mod#extend_the_family .cnt img {display: block; margin-bottom: 3px;}
+.mod#extend_the_family .cnt ul li {display: block; padding-bottom: 15px; float: left; margin-right: 20px; font-weight: bold;}
+.mod#extend_the_family .cnt ul li.last {margin-right: 0;}
+.mod#meet_the_team_sidebar h3 { background: url(/images/graphics/mod_hdr_team.gif) left top no-repeat; height: 35px; width: 281px; }
+
+/* --- Blog --- */
+.blog #page_content {background: url('images/blog_page_repeat_bgrd.gif') left top repeat-y;}
+.blog #page_content_top {background: url('images/blog_page_content_bgrd.gif') left top no-repeat;}
+.blog #page_content_bottom {background: url('images/blog_page_bottom_bgrd.gif') left bottom no-repeat;}
+
+.blog #cnt {width: 634px; float: left;}
+.blog #sidebar {width: 324px; float: left; margin-left: 6px; color: #6d6462;}
+.blog #sidebar .panel .content {padding-right: 50px;}
+
+.blog .inn {padding: 10px 12px 15px 12px; overflow: hidden; position: relative;}
+
+.blog #cnt h1 {height: 22px; padding-bottom: 23px; text-indent: -1000px; margin-top: 5px;}
+.blog #cnt h1.news---views {background: url('images/header_news-and-views.gif') left top no-repeat;}
+.blog #cnt h1.farahs---blog {background: url('/images/mod_hdr_blog.jpg') left top no-repeat;}
+.blog #cnt h1.press {background: url('images/header_press.gif') left top no-repeat;}
+.blog #cnt h1.blog {background: url('images/text_header_the-yoomi-blog.gif') left top no-repeat;}
+.blog #cnt h1.adventure {background: url('images/text_header_yoomis-real-world-adventures.gif') left top no-repeat;}
+.blog #cnt h1.invest {background: url('images/text_header_investing-in-us.gif') left top no-repeat;}
+.blog #cnt h1.privacy {background: url('images/text_header_privacy-policy.gif') left top no-repeat;}
+.blog #cnt h1.terms {background: url('images/text_header_terms.gif') left top no-repeat;}
+#cnt h1.copyright {height: 55px; margin: 5px 0 20px 0; border-bottom: 1px solid #e5e1da;
+	background: url('images/text_header_copyright.gif') 10px 10px no-repeat;  text-indent: -1000px;}
+.copyMsg {width: 600px; margin: 0 0 50px 10px;}
+
+.blog .post {border-top: 1px solid #e5e1da; margin: 0 -10px; padding: 0 10px;}
+.blog .post .header {}
+.blog .post .header h2 {color: #ffb83a; font-size: 18px; line-height: 30px; padding: 10px 0 0 0;}
+.blog .post .content {font-size: 13px; line-height: 15px; color: #6d6462;  padding: 10px 150px 0 0;}
+.blog .post .content h2 {font-weight: normal; margin-bottom: 10px; line-height: 1.5em;}
+.blog .post .content h2.replace {line-height: 21px; text-indent: -1900px;  overflow: hidden;}
+.blog .post .content ul {}
+.blog .post .content ul li {padding-left: 8px; background: url('images/bullet_post_li.gif') left 6px no-repeat;}
+
+#cnt_opt_in                                                         {background: url('images/content_opt-in.gif') left top no-repeat;}
+#cnt_collection_of_information                         {background: url('images/content_collection-of-information.gif') left top no-repeat;}
+#cnt_other_information_we_collect                 {background: url('images/content_other-information-we-collect.gif') left top no-repeat;}
+#cnt_security                                                         {background: url('images/content_security.gif') left top no-repeat;}
+#cnt_how_we_use_the_info_we_collect         {background: url('images/content_how-we-use-the-informatio-we-collect.gif') left top no-repeat;}
+#cnt_other_website                                                 {background: url('images/content_other-websites.gif') left top no-repeat;}
+#cnt_queries                                                         {background: url('images/content_queries.gif') left top no-repeat;}
+
+
+#cnt h1.together {background: url('images/mod_hdr_together.gif') left top no-repeat;}
+
+.blog .post#vip_post .content {padding-top: 10px; font-size: 18px; line-height: 20px; color: #e69600;}
+
+.blog #comments {border-top: 1px solid #e5e1da; margin: 0 -10px;}
+.blog #comments  h3 {height: 19px; text-indent: -1000px; background: url('images/mod_hdr_comments.gif') left top no-repeat; margin: 10px;}
+.blog #comments .form h3 {background: url('images/mod_hdr_leave-a-comment.gif') left top no-repeat; margin: 0 0 10px 0;}
+
+.blog #comments ul.list {padding: 10px;}
+.blog #comments ul.list li {padding-bottom: 20px;}
+.blog #comments ul.list li .avatar {display: block; width: 33px; height: 33px; float: left; border: 1px solid #e5e1da; margin-right: 5px;}
+.blog #comments ul.list li .comment {display: block; width: 420px; float: left;}
+.blog #comments ul.list li .message,
+.blog #comments ul.list li .hdr {display: block;}
+.blog #comments ul.list li .hdr a {background: url('images/bullet_orange_arrow_bright.gif') right center no-repeat; padding-right: 10px;}
+.blog #comments ul.list li .hdr .date {color: #ada69e;}
+
+.blog #comments .form {border-top: 1px solid #e5e1da;}
+.blog #comments .form form {padding: 10px;}
+.blog #comments .form .button {border: none; width: 88px; height: 44px; background: url('images/button_comments_submit.gif') left top no-repeat; margin-top: 10px; cursor: pointer;}
+
+.blog .panel {}
+.blog .panel .header {height: 19px; margin-bottom: 10px;}
+.blog .panel .content {padding-bottom: 20px;}
+.blog .panel h3 {height: 19px; text-indent: -1000px;}
+
+.blog .navigation {border-top: 1px solid #e5e1da; margin: 10px -10px 0 -10px; padding: 20px 10px 0 10px;}
+.blog .navigation a {display: block; width: 50%; overflow: hidden; float: left; font-weight: bold;}
+.blog .navigation a:hover {text-decoration: underline;}
+.blog .navigation a.next {text-align: right; background: url('images/bullet_next.gif') right 5px no-repeat;}
+.blog .navigation a.next span {padding-right: 9px;}
+.blog .navigation a.prev {text-indent: 9px; background: url('images/bullet_prev.gif') left 5px no-repeat;}
+.blog #blog_categories .header { background: url(/styles/images/mod_hdr_categories.jpg) left top no-repeat; height: 22px; }
+.blog #blog_categories h3 { margin-left: -1000px; }
+.blog #blog_archive .header { background: url(/styles/images/mod_hdr_archives.jpg) left top no-repeat; height: 22px; }
+.blog #blog_archive h3 { margin-left: -1000px; }
+
+#on_this_page .content ul li {padding: 0; list-style: none outside;}
+#on_this_page .content ul li a {display: inline; padding: 0 10px 0 0; background: url('images/bullet_orange_arrow_down_bright.gif') right center no-repeat;}
+#on_this_page h3                         {background: url('images/mod_hdr_on-this-page.gif') left top no-repeat;}
+#news_and_views h3                         {background: url('images/mod_hdr_yoomi-news-and-views.gif') left top no-repeat;}
+#current_documents h3                 {background: url('images/mod_hdr_current-documents.gif') left top no-repeat;}
+#you_yoomi_pack h3                         {background: url('images/mod_hdr_your-yoomi-pack.gif') left top no-repeat;}
+#see_how_it_began h3                 {background: url('images/mod_hdr_see-how-it-all-began.gif') left top no-repeat;}
+#real_world_adventures h3         {background: url('images/mod_hdr_yoomis-real-world-adventures.gif') left top no-repeat;}
+#the_yoomi_website h3                 {background: url('images/mod_hdr_the-yoomi-website.gif') left top no-repeat;}
+#get_in_touch_with_us h3         {background: url('images/mod_hdr_get-in-touch-with-us.gif') left top no-repeat;}
+#latest_news h3                         {background: url('images/sidebar_hdr_latest-news.gif') left top no-repeat;}
+#latest_news ul a                         {font-weight: bold;}
+#latest_news ul li                         {padding-bottom: 5px;}
+#latest_views h3                         {background: url('images/sidebar_hdr_latest-views.gif') left top no-repeat;}
+#for_the_press h3                         {background: url('images/sidebar_hdr_for-the-press.gif') left top no-repeat;}
+#uk_head_office h3                         {background: url('images/sidebar_hdr_uk-head-office.gif') left top no-repeat;}
+#uk_customer_service h3         {background: url('images/sidebar_hdr_uk-custom-service.gif') left top no-repeat;}
+#friends h3                                        {background: url('/images/friends.jpg') left top no-repeat;}
+#compterms h3                    {background: url('/images/terms_header.jpg') left top no-repeat;}
+.competition {background: url('images/competition_header.jpg') left top no-repeat;}
+.competitionterms {background: url('images/terms.jpg') left top no-repeat;}
+
+.list_documents li a {display: block; font-weight: bold; line-height: 20px;  padding-left: 15px; background: url('images/bullet_document.gif') left center no-repeat;}
+.list_documents li a span {color: #ada69e;}
+
+/* --- FAQ --- */
+
+.faq h1 {height: 40px; background: url('images/text_header_frequently-asked-questions.gif') left top no-repeat; text-indent: -1000px; margin-top: 5px;}
+.faq #faq_content {margin: 0 -10px; padding: 0 10px; border-top: 1px solid #e5e1da;}
+.faq #faq_cnt {width: 640px; float: left;}
+.faq #faq_sidebar {width: 300px; border-left: 1px solid #e5e1da; float: left;}
+.faq #faq_sidebar .mod {padding: 10px;}
+.faq #faq_sidebar .mod .hdr {margin: 0;}
+.faq #faq_sidebar .mod .hdr h3 {height: 21px; background: url('images/mod_hdr_other-questions.gif') left top no-repeat;}
+
+.faq .mod {padding: 0 15px 0 0;}
+.faq .mod .hdr {padding: 0;}
+.faq .mod .hdr h3 {height: 115px; background: #F00;}
+
+.faq #faq_list li {font-weight: bold; background: url('images/bullet_pointer_closed.gif') left 8px no-repeat; padding: 3px 5px 3px 15px; cursor: pointer;}
+.faq #faq_list li li {font-weight: normal; background: none; padding: 3px 5px 3px 0; cursor: default;}
+.faq #faq_list li span {display: none;}
+.faq #faq_list li.active {background: url('images/bullet_pointer_open.gif') left 8px no-repeat;}
+.faq #faq_list li.active span {display: block; font-weight: normal; padding: 3px 0 0 0;}
+
+.faq #c_separator {margin: 10px 0 10px -10px; background: #e5e1da;}
+
+.faq #download_info {display: block; float: right;  width: 309px; height: 42px; text-indent: -1000px; background: url('images/download-information-bookmarklet.gif') left top no-repeat; }
+
+.faq .mod#faq1 h3 {width: 100%; background: url('images/text_faq_how-does-the-warmer-work.gif') left top no-repeat;}
+.faq .mod#faq2 h3 {width: 100%; background: url('images/text_faq_are-the-contents-of-the-warmer-safe.gif') left top no-repeat;}
+.faq .mod#faq3 h3 {width: 100%; background: url('images/text_faq_can-yoomi-overheat.gif') left top no-repeat;}
+.faq .mod#faq4 h3 {width: 100%; background: url('images/text_faq_how-does-yoomi-help-prevent-colic.gif') left top no-repeat;}
+.faq .mod#faq5 h3 {width: 100%; background: url('images/text_faq_best-on-market.gif') left top no-repeat;}
+.faq .mod#faq6 h3 {width: 100%; background: url('images/text_faq_bpa-free.gif') left top no-repeat;}
+
+/* --- Forms --- */
+form label {display: block; font-weight: bold; color: #6d6462; font-size: 13px; padding: 5px 0;}
+form label.inline {font-weight: normal; display: inline;}
+form textarea,
+form .field {display: block; width: 90%; border: 1px solid #dedbd7; margin-bottom: 15px; padding: 3px 5px; outline: none;}
+form .field:focus {border-color: #e69600;}
+form select {width: 90%; margin-bottom: 15px;}
+
+form .field.inline {display: inline; width: 90px; margin: 0;}
+
+
+#join_the_yoomi_family_content {width: 320px; float: left; padding: 0;}
+#join_the_yoomi_family_content .hdr h3 {height: 28px; background: url('images/text_header_join-the-yoomi-family.gif') left top no-repeat;}
+#join_the_yoomi_family_content .cnt {padding-right: 20px;}
+
+#register_content {width: 320px; float: left; padding: 0;}
+#register_content .hdr h3 {height: 28px; background: url('images/text_header_registration.gif') left top no-repeat;}
+#register_content .cnt {padding-right: 20px;}
+
+#your_details_content {width: 318px; float: left; padding: 0;}
+#your_details_content .hdr h3 {height: 27px; background: url('images/text_header_your-details.gif') left top no-repeat;}
+form.cmxform .button {border: none; width: 88px; height: 45px; background: url('images/button_comments_submit.gif') left top no-repeat; margin-top: 10px; cursor: pointer;}
+form.cmxform .button:hover {background: url('images/button_comments_submit.gif') left -45px no-repeat;}
+#newsletter_accept label {display: inline;}
+
+#optional_content {width: 300px; float: left; padding: 0; border-left: 1px solid #e5e1da;}
+#optional_content .hdr h3 {height: 27px; background: url('images/text_header_optional.gif') left top no-repeat;}
+
+#contact_us_content {width: 330px; float: left;}
+#contact_us_content h3 {text-indent: -1000px;  overflow: hidden;}
+#contact_us_content .hdr h3 {height: 27px; background: url('images/text_header_contact-us.gif') left top no-repeat;}
+#contact_us_content .cnt {padding-right: 40px;}
+#contact_us_content .panel .header h3 {text-indent: -1000px;  overflow: hidden; margin: 10px 0 5px 0;}
+
+#questions_or_comments {width: 631px; float: left; background: url('images/content_contact-us-form.jpg') right bottom no-repeat;}
+#questions_or_comments .hdr h3 {height: 27px;  background: url('images/text_header_questions-or-comments.gif') left top no-repeat;}
+#questions_or_comments .cnt {padding-right: 320px;}
+#questions_or_comments form .button {border: none; width: 88px; height: 45px; background: url('images/button_comments_submit.gif') left top no-repeat; margin-top: 10px; cursor: pointer; margin-bottom: 20px;}
+#questions_or_comments form .button:hover {background: url('images/button_comments_submit.gif') left -45px no-repeat;}
+
+/* --- Basic grid styles --- */
+.col {float: left; overflow: hidden;}
+.col .inner.left {padding: 0 0 0 20px;}
+.col .inner.right {padding: 0 20px 0 0;}
+.col .inner.top {padding: 20px 0 0 0;}
+.col .inner.bottom {padding: 0 0 20px 0;}
+.col .inner.all {padding: 20px;}
+
+.col.w2  {width: 50%;}
+.col.w3  {width: 33%;}
+.col.w4  {width: 25%;}
+
+.ui-tabs-hide {display: none;}
+
+ul.tcList li {background: none !important; margin-bottom: 10px;}
+h2 {font-size: 16px; font-weight: bold !important;}
+
+.case_study_detail {
+	min-height: 350px;
+}
+
+.case_study_detail h3 {
+	margin-left: 290px;
+}
+
+.meet_the_team_image {
+	display: inline-block;
+	margin: auto 15px 15px auto;
+}
+
+.case_study_detail p {
+	margin-left: 290px;
+}
+
+.meet_the_team_detail {
+	min-height: 400px;
+}
+
+.meet_the_team_detail h3 {
+	margin-left: 330px;
+}
+
+.meet_the_team_detail p {
+	margin-left: 330px;
+}
+
+.press_image {
+	display: block;
+	float: left;
+	margin-bottom: 15px;
+	margin-right: 15px;
+}
+
+.press_image img {
+	background-color: #ededed;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+.press_detail {
+	display: none;
+}
+
+#sidebar #in_the_press h3 {
+	height: 20px;
+	text-indent: -1200px;
+	width: 180px;
+}
+
+
+#sidebar #in_the_press h3 { background: url(/images/mod_hdr_coverage.jpg) no-repeat; }
+
+#blog_categories .header,
+#blog_archive .header {
+	margin-bottom: 1em;
+}
+
+#blog_categories ul {
+	margin-bottom: 2em;
+}
+
+#in_the_press .sidebar_image {
+	display: block;
+}
+
+.faq_q {
+	display: block;
+	margin: 0.5em 0 1em 0;
+	font-weight: 900 !important;
+}
+
+.faq_q+em {
+	display: block;
+	margin-bottom: 2em;
+}
+
+#wtb {
+	width: 638px;
+/*	background-color: #FFF;*/
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+	padding-left: 10px;
+	font-family: "SkirtRgRegular";
+	font-size: 14px;
+}
+
+.thdr h3 {
+	color: #FEB73B;
+	font-size: 27px;
+	font-weight: normal;
+	text-transform: lowercase;
+	opacity: 0.99;
+	text-shadow: 0 0 1px rgba(230, 150, 0, 0.6);
+	letter-spacing: 0px;
+	margin: 15px 0 22px 0;
+}
+
+#wtb p {
+	padding: 0;
+	margin-bottom: 10px;
+	font-size: 13px;
+	line-height: 15px;
+	color: #6d6462;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#wtb .clist {
+	margin: 25px 0 25px 0;
+	min-height: 510px;
+}
+#wtb .clist>div {
+	float: left;
+	width: 310px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+#wtb .clist>div a {
+	display: block;
+	color: #FEB73B;
+	font-size: 21px;
+	font-weight: normal;
+	opacity: 0.99;
+	text-shadow: 0 0 1px rgba(230, 150, 0, 0.6);
+	letter-spacing: 0px;
+	padding-bottom: 12px;
+}
+#wtb .clist>div img {
+	width: 140px;
+	height: 70px;
+	border-radius: 6px;
+	-webkit-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.2);
+	box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.2);
+}
+#wtb .clist>div img:hover {
+	opacity: 0.85;
+}
+
+#wtb .cdist {
+	margin: 25px 0 25px 10px;
+	min-height: 510px;
+}
+#wtb .cdist>h4 {
+	clear:both;
+	float: none;
+	display: block;
+	color: #FFAD1F;
+	font-size: 25px;
+	font-weight: normal;
+	opacity: 0.99;
+	text-shadow: 0 0 0.8px rgba(230, 150, 0, 0.6);
+	letter-spacing: 0px;
+	padding: 40px 0 30px 0;
+	border-top: 1px solid #D82281;
+	margin-right: 28px;
+}
+#wtb .cdist>h4:first-child {
+	border-top: none;
+}
+#wtb .cdist>div {
+	float: left;
+	width: 310px;
+	margin-bottom: 40px;
+	min-height: 81px;
+}
+#wtb .cdist>div img {
+	float:left;
+	width: 45px;
+	height: 45px;
+	margin-right: 6px;
+}
+#wtb .cdist h5 {
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFAD1F;
+	opacity: 0.99;
+	text-shadow: 0 0 0.6px rgba(230, 150, 0, 0.6);
+	line-height: 26px;
+}
+#wtb .cdist a {
+	font-weight: normal;
+}
+#wtb .dhead p {
+	font-size: 15px;
+	color:#666;
+	margin-left: 52px;
+}
+#wtb .cdist .dbody {
+	clear:both;
+	font-size: 13px;
+	color:#6D6462;
+	line-height: 15px;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#wtb .cstock {
+	margin: 25px 0 25px 10px;
+	min-height: 510px;
+}
+#wtb .cstock>h4 {
+	clear:both;
+	float: none;
+	display: block;
+	color: #FEB73B;
+	font-size: 25px;
+	font-weight: normal;
+	opacity: 0.99;
+	text-shadow: 0 0 1px rgba(230, 150, 0, 0.6);
+	letter-spacing: 0px;
+	padding: 40px 0 30px 0;
+	border-top: 1px solid #D82281;
+	margin-right: 28px;
+}
+#wtb .cstock>h4:first-child {
+	border-top: none;
+}
+#wtb .cstock>div {
+	float: left;
+	width: 310px;
+	margin-bottom: 30px;
+}
+#wtb h6 {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 6px;
+}
+#wtb .cstock img {
+	margin-bottom: 6px;
+}
+#wtb .cstock p {
+	font-size: 13px;
+	color:#6D6462;
+	line-height: 15px;
+	margin-bottom: 3px;
+}
+#wtb .cstock .plink {
+	font-size: 13px;
+	line-height: 15px;
+	font-weight: normal;
+	color: #FEB73B;
+}
+#wtb .cstock .plink a {
+	padding-left: 5px;
+	color: #FEB73B;
+}
