@@ -46,7 +46,7 @@ textarea {
 }
 
 .navbar-brand {
-    background: url('../images/logoyoomi.gif') left top no-repeat;
+    background: url('/wwwroot/images/logoyoomi.gif') left top no-repeat;
     height: 151px;
     width: 254px;
 }
