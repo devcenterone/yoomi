@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Comanda";
+}
+
+<a id="orderanchor" class="btn btn-default">
+    Comanda acum
+</a>
+
+
+
+
+
+@section scripts
+{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#orderanchor")
+                .click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: "json",
+                        url: '/Home/SendOrder',
+                        success: function (data) {
+                            if (data.Result == 'OK') {
+                                alert('ok');
+                            }
+                        }
+                    });
+                });
+        });
+    </script>
+
+}
