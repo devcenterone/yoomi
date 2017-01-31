@@ -57,19 +57,19 @@ namespace Yoomi.Controllers
             StringBuilder mailBody = new StringBuilder();
 
             mailBody.AppendFormat("Nume client: {0}", form.Name);
-            mailBody.Append(Environment.NewLine);
+            mailBody.Append("<br /> ");
             mailBody.AppendFormat("Email client: {0}", form.Email);
-            mailBody.Append(Environment.NewLine);
+            mailBody.Append("<br /> ");
             mailBody.AppendFormat("Telefon client: {0}", form.Phone);
-            mailBody.Append(Environment.NewLine);
-            mailBody.Append(Environment.NewLine);
+            mailBody.Append("<br /> ");
+            mailBody.Append("<br /> ");
             mailBody.Append("Produsele:");
-            mailBody.Append(Environment.NewLine);
-            var index = 0;
+            mailBody.Append("<br /> ");
+            var index = 1;
             foreach (var prod in form.Products)
             {
                 mailBody.AppendFormat(" {0}. {1}",index++,prod);
-                mailBody.Append(Environment.NewLine);
+                mailBody.Append("<br /> ");
             }
 
 

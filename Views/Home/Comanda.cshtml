@@ -110,11 +110,7 @@
                         url: '/Home/SendOrder',
                         success: function (data) {
                             $("#orderanchor").removeAttr('disabled');
-                            if (data.Result == 'OK') {
-                                toastr.info('Comanda a fost trimisa cu succes.');
-                            } else {
-                                toastr.warning('Ups a aparut o eroare. Te rog mai incearca odata.');
-                            }
+                            toastr.info('Comanda a fost trimisa cu succes.');
                         }
                     });
                 });
