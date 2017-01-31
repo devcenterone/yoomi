@@ -65,19 +65,19 @@
                 Nume:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> { { "class", "form-control" }, { "type", "text" }, {"value", "test"} })
+                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> { { "class", "form-control" }, { "type", "text" }, {"value", "test"}, { "data-val-required", "This field is required." } })
             </dd>
             <dt>
                 Email:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" } , { "value", "a@a.a" }, { "placeholder", "exemplu@yahoo.com" } })
+                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" } , { "value", "a@a.a" }, { "placeholder", "exemplu@yahoo.com" }, { "data-val-required", "This field is required." } })
             </dd>
             <dt>
                 Telefon:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, { "value", "0751999888" }, {"placeholder", "07XXXXXXXX"} })
+                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, { "value", "0751999888" }, {"placeholder", "07XXXXXXXX"}, { "data-val-required", "This field is required." } })
             </dd>
         </dl>
     </div>
@@ -97,24 +97,42 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            $("#orderanchor")
-                .click(function (e) {
-                    e.preventDefault();
-                    $("#orderanchor").attr('disabled', 'disabled');
-                    $.ajax({
-                        type: 'POST',
-                        //contentType: 'application/json; charset=utf-8',
-                        dataType: "json",
-                        data: $("#orderForm").serialize(),
-                        url: '/Home/SendOrder',
-                        success: function (data) {
-                            $("#orderanchor").removeAttr('disabled');
-                            toastr.info('Comanda a fost trimisa cu succes.');
-                        }
+        $(document)
+            .ready(function() {
+                $("#orderanchor")
+                    .click(function(e) {
+                        e.preventDefault();
+
+                        var form = $("#orderForm");
+                        //   var validationResult = form.validate();
+
+                        //if (form.valid() == false) {
+                        //    $.each(validationResult.errorList, function (index, value) {
+                        //        toastr.error("Camp nevalid.", ' ' + value.message);//value.element.getAttribute('data-err')
+                        //    });
+                        //    return;
+                        //}
+
+
+                        $("#orderanchor").attr('disabled', 'disabled');
+                        $.ajax({
+                            type: 'POST',
+                            //contentType: 'application/json; charset=utf-8',
+                            dataType: "json",
+                            data: form.serialize(),
+                            url: '/Home/SendOrder',
+                            success: function(data) {
+                                $("#orderanchor").removeAttr('disabled');
+                                if (data.result == 'OK') {
+                                    toastr.info('Comanda a fost trimisa cu succes.');
+                                } else {
+                                   
+                                    toastr.error('', data.message);
+                                }
+                            }
+                        });
                     });
-                });
-        });
+            });
     </script>
 
 }

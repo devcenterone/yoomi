@@ -8,6 +8,7 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using MimeKit;
 using Yoomi.Entity;
 
@@ -43,12 +44,16 @@ namespace Yoomi.Controllers
 
         public async Task<JsonResult> SendOrder(OrderForm form, FormCollection col)
         {
+
+            if (form.Products == null || !form.Products.Any())
+                return Json(new { Result = "ERROR", Message = "Alegeti cel putin un produs pt comanda." });
+
             //If model not valid return to form page for validation
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || ModelState.Values.Any(x => x.ValidationState != ModelValidationState.Skipped))
             {
 
                 var allErrors = ModelState.Values.SelectMany(v => v.Errors).Select(x => x.ErrorMessage);
-                string errors = String.Join(string.Empty, allErrors);
+                string errors = String.Join("<br />", allErrors);
 
                 return Json(new { Result = "ERROR", Message = errors });
             }
@@ -118,7 +123,8 @@ namespace Yoomi.Controllers
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
-            emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
+            //emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
+            emailMessage.To.Add(new MailboxAddress("cristi pop", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart("plain") { Text = message };
 

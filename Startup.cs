@@ -29,6 +29,7 @@ namespace Yoomi
         {
             // Add framework services.
             services.AddMvc();
+            services.AddMvcCore().AddDataAnnotations();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
