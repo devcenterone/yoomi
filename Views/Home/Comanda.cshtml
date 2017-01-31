@@ -1,6 +1,88 @@
-﻿@{
+﻿@model Yoomi.Entity.OrderForm
+@{
     ViewData["Title"] = "Comanda";
 }
+
+
+
+<form id="orderForm">
+    <div>
+        <h4>Produse</h4>
+        <hr />
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/images/bib240tet0inc-thumb.png" style=""/>
+                <label><input  name="Products" type="checkbox" value="biberon 240mltetina 0luni încalzitor"/> biberon 240ml tetina 0luni&încalzitor</label>
+
+
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/inc-thumb.png" style=""/>
+                <label><input  name="Products" type="checkbox" value="încalzitor"/> încalzitor</label>
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/bib140tet-thumb.png" style=""/>
+                <label><input  name="Products" type="checkbox" value="biberon 140ml tetina 0luni"/> biberon 140ml tetina 0luni</label>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/images/bib240tet0-thumb.png" style="" />
+                <label><input  name="Products" type="checkbox" value="biberon 240ml tetina 0luni" /> biberon 240ml tetina 0luni</label>                
+            </div>
+            <div class="col-lg-4">
+                <img src="~/images/tet1-thumb.png" style=""/>
+                <label><input  name="Products" type="checkbox" value="tetina >1luna" /> tetina >1luna</label>                
+            </div>
+
+            <div class="col-lg-4">
+                <img src="~/images/tet3-thumb.png" style=""/>
+                <label><input  name="Products" type="checkbox" value="tetina >3luni" /> tetina >3luni</label>                
+            </div>
+        </div>
+        <br/><br />
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="~/images/bib140tet-thumb.png" style="" />
+                <img src="~/images/bib240tet0inc-thumb.png" style=""/>
+                <label><input  name="Products" type="checkbox" value="Pachetului New Born" /> Pachetului New Born</label>         
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <h4>Detalii comanda</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Nume:
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> { { "class", "form-control" }, { "type", "text" }, {"value", "test"} })
+            </dd>
+            <dt>
+                Email:
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" } , { "value", "a@a.a" }, { "placeholder", "exemplu@yahoo.com" } })
+            </dd>
+            <dt>
+                Telefon:
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, { "value", "0751999888" }, {"placeholder", "07XXXXXXXX"} })
+            </dd>
+        </dl>
+    </div>
+</form>
+
 
 <a id="orderanchor" class="btn btn-default">
     Comanda acum
@@ -19,14 +101,19 @@
             $("#orderanchor")
                 .click(function (e) {
                     e.preventDefault();
+                    $("#orderanchor").attr('disabled', 'disabled');
                     $.ajax({
                         type: 'POST',
-                        contentType: 'application/json; charset=utf-8',
+                        //contentType: 'application/json; charset=utf-8',
                         dataType: "json",
+                        data: $("#orderForm").serialize(),
                         url: '/Home/SendOrder',
                         success: function (data) {
+                            $("#orderanchor").removeAttr('disabled');
                             if (data.Result == 'OK') {
-                                alert('ok');
+                                toastr.info('Comanda a fost trimisa cu succes.');
+                            } else {
+                                toastr.warning('Ups a aparut o eroare. Te rog mai incearca odata.');
                             }
                         }
                     });

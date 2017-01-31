@@ -61,3 +61,19 @@ textarea {
  }
 
 
+/*input[type="checkbox"] {
+    -webkit-transform:scale(2, 2);
+    -moz-transform:scale(2, 2);
+    -ms-transform:scale(2, 2);
+    -o-transform:scale(2, 2);
+    transform:scale(2, 2);
+}*/
+
+input[type="checkbox"] {
+  background: url('http://refundfx.com.au/uploads/image/checkbox_full.png') !important;
+  background-size: 20px !important;
+  background-repeat: no-repeat !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 !important;
+}

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
+using Yoomi.Entity;
 
 namespace Yoomi.Controllers
 {
@@ -37,20 +40,52 @@ namespace Yoomi.Controllers
 
 
 
-        public async Task<JsonResult> SendOrder(string producIds)
+        public async Task<JsonResult> SendOrder(OrderForm form, FormCollection col)
         {
-            await SendEmailAsync("sergiu.barbu@gmail.com");
+            //If model not valid return to form page for validation
+            if (!ModelState.IsValid)
+            {
+
+                var allErrors = ModelState.Values.SelectMany(v => v.Errors).Select(x => x.ErrorMessage);
+                string errors = String.Join(string.Empty, allErrors);
+
+                return Json(new { Result = "ERROR", Message = errors });
+            }
+
+
+            StringBuilder mailBody = new StringBuilder();
+
+            mailBody.AppendFormat("Nume client: {0}", form.Name);
+            mailBody.Append(Environment.NewLine);
+            mailBody.AppendFormat("Email client: {0}", form.Email);
+            mailBody.Append(Environment.NewLine);
+            mailBody.AppendFormat("Telefon client: {0}", form.Phone);
+            mailBody.Append(Environment.NewLine);
+            mailBody.Append(Environment.NewLine);
+            mailBody.Append("Produsele:");
+            mailBody.Append(Environment.NewLine);
+            var index = 0;
+            foreach (var prod in form.Products)
+            {
+                mailBody.AppendFormat(" {0}. {1}",index++,prod);
+                mailBody.Append(Environment.NewLine);
+            }
+
+
+
+
+            await SendEmailAsync("sergiu.barbu@gmail.com", mailBody.ToString());
 
             return Json(new { Result = "OK" });
         }
 
 
-        public async Task SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "test de comanda.")
+        public async Task SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
         {
 
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Joe Bloggs", "yoomi.shop.ro@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
             emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart("plain") { Text = message };

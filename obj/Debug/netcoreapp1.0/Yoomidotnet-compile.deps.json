@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "e3d4edb685663325fd476a3885032c117aeffbca"
+    "signature": "8996cfba8d706c693b4240d66f3104bf48edc6a4"
   },
   "compilationOptions": {
     "defines": [
@@ -32,7 +32,8 @@
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "1.1.0",
           "MailKit": "1.10.0",
-          "jQuery": "3.1.1"
+          "jQuery": "3.1.1",
+          "toastr": "2.1.1"
         },
         "compile": {
           "Yoomi.dll": {}
@@ -2735,6 +2736,11 @@
           "System.Xml.XDocument": "4.3.0",
           "System.Xml.XPath": "4.0.1"
         }
+      },
+      "toastr/2.1.1": {
+        "dependencies": {
+          "jQuery": "3.1.1"
+        }
       }
     },
     ".NETCoreApp,Version=v1.0/": {
@@ -2756,7 +2762,8 @@
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "1.1.0",
           "MailKit": "1.10.0",
-          "jQuery": "3.1.1"
+          "jQuery": "3.1.1",
+          "toastr": "2.1.1"
         },
         "runtime": {
           "Yoomi.dll": {}
@@ -5366,6 +5373,11 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "toastr/2.1.1": {
+        "dependencies": {
+          "jQuery": "3.1.1"
+        }
       }
     }
   },
@@ -6424,6 +6436,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-FLhdYJx4331oGovQypQ8JIw2kEmNzCsjVOVYY/16kZTUoquZG85oVn7yUhBE2OZt1yGPSXAL0HTEfzjlbNpM7Q=="
+    },
+    "toastr/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h/688XvzYk1xVYn213ryU+HCElE4n/drYzAHJkAi9LsSUPS3EbI6wGlvCglBUt7i4h5iESgAVarYaigjQmVpqg=="
     }
   }
 }

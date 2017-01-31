@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "161c68ca803ec4973c3311ee46ef628f398d4c02"
+    "signature": "a3bd8449a7ea5532f1673b0d96978d6f74768608"
   },
   "compilationOptions": {
     "defines": [
@@ -32,7 +32,8 @@
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "1.1.0",
           "MailKit": "1.10.0",
-          "jQuery": "3.1.1"
+          "jQuery": "3.1.1",
+          "toastr": "2.1.1"
         },
         "runtime": {
           "Yoomi.dll": {}
@@ -2801,6 +2802,11 @@
           "ref/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "toastr/2.1.1": {
+        "dependencies": {
+          "jQuery": "3.1.1"
+        }
+      },
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -4484,6 +4490,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ=="
+    },
+    "toastr/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h/688XvzYk1xVYn213ryU+HCElE4n/drYzAHJkAi9LsSUPS3EbI6wGlvCglBUt7i4h5iESgAVarYaigjQmVpqg=="
     },
     "Libuv/1.9.0": {
       "type": "package",
