@@ -45,13 +45,13 @@ namespace Yoomi.Controllers
         }
 
 
-        public async Task SendEmailAsync(string email, string subject = "test", string message = "test")
+        public async Task SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "test de comanda.")
         {
 
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Joe Bloggs", "sergiu.barbu@gmail.com"));
-            emailMessage.To.Add(new MailboxAddress("sergiu.barbu@aegon.ro", email));
+            emailMessage.From.Add(new MailboxAddress("Joe Bloggs", "yoomi.shop.ro@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart("plain") { Text = message };
 
@@ -66,9 +66,9 @@ namespace Yoomi.Controllers
                 //await client.DisconnectAsync(true).ConfigureAwait(false);
 
 
-                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.None).ConfigureAwait(false);
+                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTlsWhenAvailable).ConfigureAwait(false);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
-                await client.AuthenticateAsync("sergiu.barbu@gmail.com", "smarandaareochiiverzi");
+                await client.AuthenticateAsync("yoomi.shop.ro@gmail.com", "cristipopvaida");
 
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true);
