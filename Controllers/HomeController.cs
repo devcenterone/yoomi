@@ -57,19 +57,19 @@ namespace Yoomi.Controllers
             StringBuilder mailBody = new StringBuilder();
 
             mailBody.AppendFormat("Nume client: {0}", form.Name);
-            mailBody.Append("<br /> ");
+            mailBody.Append("\r\n ");
             mailBody.AppendFormat("Email client: {0}", form.Email);
-            mailBody.Append("<br /> ");
+            mailBody.Append("\r\n ");
             mailBody.AppendFormat("Telefon client: {0}", form.Phone);
-            mailBody.Append("<br /> ");
-            mailBody.Append("<br /> ");
+            mailBody.Append("\r\n ");
+            mailBody.Append("\r\n ");
             mailBody.Append("Produsele:");
-            mailBody.Append("<br /> ");
+            mailBody.Append("\r\n ");
             var index = 1;
             foreach (var prod in form.Products)
             {
                 mailBody.AppendFormat(" {0}. {1}",index++,prod);
-                mailBody.Append("<br /> ");
+                mailBody.Append("\r\n ");
             }
 
 
@@ -88,7 +88,7 @@ namespace Yoomi.Controllers
 
             emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
             emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
-            emailMessage.Subject = subject;
+            emailMessage.Subject = subject;            
             emailMessage.Body = new TextPart("plain") { Text = message };
 
 
