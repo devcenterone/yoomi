@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
@@ -80,7 +81,7 @@ namespace Yoomi.Controllers
         }
 
 
-        public async Task SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        public async Task SendEmailAsyncOld(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
         {
 
             var emailMessage = new MimeMessage();
@@ -101,16 +102,50 @@ namespace Yoomi.Controllers
                 //await client.DisconnectAsync(true).ConfigureAwait(false);
 
 
-                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTlsWhenAvailable).ConfigureAwait(false);
+                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls).ConfigureAwait(false);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
-                await client.AuthenticateAsync("yoomi.shop.ro@gmail.com", "cristipopvaida");
-
+                await client.AuthenticateAsync("yoomi.shop.ro@gmail.com", "cristipopvaida");                
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             }
         
         }
+
+        public async Task SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        {           
+
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
+            emailMessage.Subject = subject;
+            emailMessage.Body = new TextPart("plain") { Text = message };
+
+
+
+            using (var client = new SmtpClient())
+            {
+                var credentials = new NetworkCredential
+                {
+                    UserName = "yoomi.shop.ro@gmail.com", // replace with valid value
+                    Password = "cristipopvaida" // replace with valid value
+                };
+
+                client.LocalDomain = "yoomi.herokuapp.com";
+                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+
+                await client.AuthenticateAsync(credentials);
+
+                await client.SendAsync(emailMessage).ConfigureAwait(false);
+                await client.DisconnectAsync(true).ConfigureAwait(false);
+                //You need to add return here
+                //return RedirectToAction("Thanks");
+            }
+
+        }
+
 
 
     }
