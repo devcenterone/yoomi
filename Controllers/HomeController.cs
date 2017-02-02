@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -8,8 +8,10 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+using System.ComponentModel.DataAnnotations;
 using MimeKit;
+using MimeKit.Text;
 using Yoomi.Entity;
 
 namespace Yoomi.Controllers
@@ -49,7 +51,7 @@ namespace Yoomi.Controllers
                 return Json(new { Result = "ERROR", Message = "Alegeti cel putin un produs pt comanda." });
 
             //If model not valid return to form page for validation
-            if (!ModelState.IsValid || ModelState.Values.Any(x => x.ValidationState != ModelValidationState.Skipped))
+            if (!ModelState.IsValid || ModelState.Values.SelectMany(v => v.Errors).Select(x => x.ErrorMessage).Any())
             {
 
                 var allErrors = ModelState.Values.SelectMany(v => v.Errors).Select(x => x.ErrorMessage);
@@ -61,26 +63,30 @@ namespace Yoomi.Controllers
 
             StringBuilder mailBody = new StringBuilder();
 
-            mailBody.AppendFormat("Nume client: {0}", form.Name);
-            mailBody.Append("\r\n ");
-            mailBody.AppendFormat("Email client: {0}", form.Email);
-            mailBody.Append("\r\n ");
-            mailBody.AppendFormat("Telefon client: {0}", form.Phone);
-            mailBody.Append("\r\n ");
-            mailBody.Append("\r\n ");
-            mailBody.Append("Produsele:");
-            mailBody.Append("\r\n ");
+            mailBody.AppendFormat("Nume: {0}", form.Name).Append("<---->"); 
+            
+            mailBody.AppendFormat("Adresa: {0}", form.Address).Append("<---->");
+            
+            mailBody.AppendFormat("Email: {0}", form.Email).Append("<---->");
+            
+            mailBody.AppendFormat("Telefon: {0}", form.Phone).Append("<---->");
+            
+            
+            mailBody.Append("Produsele:").Append("<---->");
+            
+            
             var index = 1;
             foreach (var prod in form.Products)
             {
-                mailBody.AppendFormat(" {0}. {1}",index++,prod);
-                mailBody.Append("\r\n ");
+                mailBody.AppendFormat(" {0}. {1}",index++,prod).Append("<---->");
+                
             }
 
 
 
 
-            await SendEmailAsync("c.pop.vaida@gmail.com", mailBody.ToString());
+            //await SendEmailAsync("c.pop.vaida@gmail.com", mailBody.ToString());
+            await SendEmailAsync("sergiu.barbu@gmail.com", mailBody.ToString());
 
             return Json(new { Result = "OK" });
         }
@@ -121,12 +127,13 @@ namespace Yoomi.Controllers
         {           
 
             var emailMessage = new MimeMessage();
-
+            
             emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
             //emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
             emailMessage.To.Add(new MailboxAddress("cristi pop", email));
             emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart("plain") { Text = message };
+
+            emailMessage.Body = new TextPart( TextFormat.Plain) { Text = message, };
 
 
 
