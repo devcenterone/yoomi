@@ -12,6 +12,10 @@ namespace Yoomi.Entity
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Numele trebuie sa contina intre 3 - 30 caractere")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Completati Adresa.")]
+        [StringLength(200, MinimumLength = 10, ErrorMessage = "Adresa trebuie sa contina intre 10 - 200 caractere")]
+        public string Address { get; set; }
+
         [Required(ErrorMessage = "Completati Email-ul.")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Email-ul nu este valid!")]
         [EmailAddress(ErrorMessage = "Email-ul nu este valid!")]

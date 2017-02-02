@@ -65,19 +65,25 @@
                 Nume:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> { { "class", "form-control" }, { "type", "text" }, {"value", "test"}, { "data-val-required", "This field is required." } })
+                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> {{"class", "form-control"}, {"type", "text"}, {"value", "test"}, {"data-val-required", "This field is required."}})
+            </dd>
+            <dt>
+                Adresa:
+            </dt>
+            <dd>
+                @Html.TextAreaFor(m => Model.Address, new Dictionary<string, object> { { "class", "form-control" }, { "type", "text" }, { "placeholder", "oras, strada, numar, apartament,cod postal" }, { "data-val-required", "This field is required." } })
             </dd>
             <dt>
                 Email:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" } , { "value", "a@a.a" }, { "placeholder", "exemplu@yahoo.com" }, { "data-val-required", "This field is required." } })
+                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" } ,  { "placeholder", "exemplu@yahoo.com" }, { "data-val-required", "This field is required." } })
             </dd>
             <dt>
                 Telefon:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, { "value", "0751999888" }, {"placeholder", "07XXXXXXXX"}, { "data-val-required", "This field is required." } })
+                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, {"placeholder", "07XXXXXXXX"}, { "data-val-required", "This field is required." } })
             </dd>
         </dl>
     </div>
