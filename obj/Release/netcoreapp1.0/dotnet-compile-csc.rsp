@@ -198,5 +198,5 @@
 -resource:"C:\Wordpress\yoomi\Yoomi\src\Yoomi\obj\Release\netcoreapp1.0\Yoomidotnet-compile.deps.json",Yoomi.deps.json
 "C:\Wordpress\yoomi\Yoomi\src\Yoomi\Program.cs"
 "C:\Wordpress\yoomi\Yoomi\src\Yoomi\Startup.cs"
-"C:\Wordpress\yoomi\Yoomi\src\Yoomi\Controllers\ComandaController.cs"
 "C:\Wordpress\yoomi\Yoomi\src\Yoomi\Controllers\HomeController.cs"
+"C:\Wordpress\yoomi\Yoomi\src\Yoomi\Entity\OrderForm.cs"

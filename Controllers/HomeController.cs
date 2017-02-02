@@ -80,7 +80,7 @@ namespace Yoomi.Controllers
 
 
 
-            await SendEmailAsync("sergiu.barbu@gmail.com", mailBody.ToString());
+            await SendEmailAsync("c.pop.vaida@gmail.com", mailBody.ToString());
 
             return Json(new { Result = "OK" });
         }
