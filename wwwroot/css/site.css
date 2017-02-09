@@ -5,6 +5,10 @@
     font-family: Arial !important;
 }
 
+h1 {
+    font-size: 42px;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -57,8 +61,8 @@ textarea {
 
 
 .navbar-inverse .navbar-nav > li > a {
-     font-size: 20px;
- }
+    font-size: 20px;
+}
 
 
 /*input[type="checkbox"] {
@@ -70,10 +74,98 @@ textarea {
 }*/
 
 input[type="checkbox"] {
-  background: url('http://refundfx.com.au/uploads/image/checkbox_full.png') !important;
-  background-size: 20px !important;
-  background-repeat: no-repeat !important;
-  width: 20px !important;
-  height: 20px !important;
-  margin: 0 !important;
+    background: url('http://refundfx.com.au/uploads/image/checkbox_full.png') !important;
+    background-size: 20px !important;
+    background-repeat: no-repeat !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
 }
+
+
+.yellowbkg {
+    background-color: #ffc222;
+    padding: 20px;
+}
+
+    .yellowbkg h1,h3 {
+        color: #FFF;
+    }
+
+.mainbanner {
+    background: url('/images/Bootels2.png') center no-repeat;
+    height: 500px;
+    width: 500px;
+    margin-left: 25%;
+    padding-top: 2%;
+}
+
+    .mainbanner p {
+        margin-left: 0%;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+
+.whitebkg {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+    .whitebkg p {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+
+.modes div{
+    font-size: 18px;
+    text-align: center;
+    padding-top: 120px;
+    width: 240px;
+}
+
+.modu1 {
+    background: url('/images/Utilizare01.png') top center no-repeat;
+}
+
+.modu2 {
+    background: url('/images/Utilizare02.png') top center no-repeat;
+}
+
+.modu3 {
+    background: url('/images/Utilizare03.png') top center no-repeat;
+}
+
+.modu4 {
+    background: url('/images/Utilizare04.png') top center no-repeat;
+}
+
+
+
+.asamb1 {
+    background: url('/images/Asamblare01.png') top center no-repeat;
+}
+
+.asamb2 {
+    background: url('/images/Asamblare02.png') top center no-repeat;
+}
+
+.asamb3 {
+    background: url('/images/Asamblare03.png') top center no-repeat;
+}
+
+
+
+.modesnopic div{
+    font-size: 18px;
+    text-align: center;    
+    width: 240px;
+}
+
+.modesnopic h2 {
+     color: #ffc222;
+}
+
+

@@ -26,6 +26,7 @@ namespace Yoomi.Entity
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Alegeti minim un produs pt comanda.")]
-        public string[] Products { get; set; }
+        public int[] Products { get; set; }
+        public string[] ProductsNm { get; set; }
     }
 }

@@ -12,51 +12,82 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <img src="~/images/bib240tet0inc-thumb.png" style=""/>
-                <label><input  name="Products" type="checkbox" value="biberon 240mltetina 0luni încalzitor"/> biberon 240ml tetina 0luni&încalzitor</label>
+                <img src="~/images/bib240tet0inc-thumb.png" style="" />
+                <input id="spinner1" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="biberon 240ml tetina 0luni si încalzitor" />
+                <b>125 lei</b> -  biberon 240ml tetina 0luni&încalzitor
+
 
 
             </div>
             <div class="col-lg-4">
-                <img src="~/images/inc-thumb.png" style=""/>
-                <label><input  name="Products" type="checkbox" value="încalzitor"/> încalzitor</label>
+                <img src="~/images/inc-thumb.png" style="" />
+                <input id="spinner2" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="încalzitor" />
+                <b>90 lei</b> - încalzitor
+
             </div>
             <div class="col-lg-4">
-                <img src="~/images/bib140tet-thumb.png" style=""/>
-                <label><input  name="Products" type="checkbox" value="biberon 140ml tetina 0luni"/> biberon 140ml tetina 0luni</label>
+                <img src="~/images/bib140tet-thumb.png" style="" />
+                <input id="spinner3" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="biberon 140ml tetina 0luni" />
+                <b>50 lei</b> - biberon 140ml tetina 0luni
+
             </div>
         </div>
         <br /><br />
         <div class="row">
             <div class="col-lg-4">
                 <img src="~/images/bib240tet0-thumb.png" style="" />
-                <label><input  name="Products" type="checkbox" value="biberon 240ml tetina 0luni" /> biberon 240ml tetina 0luni</label>                
+                <input id="spinner4" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="biberon 240ml tetina 0luni" />
+                <b>50 lei</b> - biberon 240ml tetina 0luni
+
             </div>
             <div class="col-lg-4">
-                <img src="~/images/tet1-thumb.png" style=""/>
-                <label><input  name="Products" type="checkbox" value="tetina >1luna" /> tetina >1luna</label>                
+                <img src="~/images/tet1-thumb.png" style="" />
+                <input id="spinner5" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="tetina >1luna" />
+                <b>35 lei</b> - tetina >1luna
+
             </div>
 
             <div class="col-lg-4">
-                <img src="~/images/tet3-thumb.png" style=""/>
-                <label><input  name="Products" type="checkbox" value="tetina >3luni" /> tetina >3luni</label>                
+                <img src="~/images/tet3-thumb.png" style="" />
+                <input id="spinner6" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="tetina >3luni" />
+                <b>35 lei</b> - tetina >3luni
+
             </div>
         </div>
-        <br/><br />
+        <div class="row yellowbkg">
+            <img src="~/images/bib140tet-thumb.png" style="float: left;" />
+            <h3>&nbsp;Cadou biberon Yoomi pentru proaspetele mamici ale maternitatii</h3>
+
+            <h3>&nbsp;CADOU Biberon 140ml + tetina 0luni</h3>
+
+        </div>
+        <br /><br />
         <div class="row">
-            <div class="col-lg-6">
-                <img src="~/images/bib140tet-thumb.png" style="" />
-                <img src="~/images/bib240tet0inc-thumb.png" style=""/>
-                <label><input  name="Products" type="checkbox" value="Pachetului New Born" /> Pachetului New Born</label>         
+            <div class="col-lg-4">
+                <b>la achizitia</b>
+                <img src="~/images/bib240tet0inc-thumb.png" style="" />
+                <input id="spinner7" name="Products" value="0"><br />
+                <input type="hidden" name="ProductsNm" value="Pachetului New Borny" />
+                <b>195 lei</b> - Pachetului New Borny
+
+            </div>
+            <div class="col-md-4">
+                Sticla 240ml +<br />
+                tetina 0luni +<br />
+                2 tetine >1luna +<br />
+                2 tetine >3luni<br />
+                + încalzitor<br />
             </div>
         </div>
 
 
-
-
-
-
-
+        <hr />
 
         <h4>Detalii comanda</h4>
         <hr />
@@ -65,7 +96,7 @@
                 Nume:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> {{"class", "form-control"}, {"type", "text"}, {"value", "test"}, {"data-val-required", "This field is required."}})
+                @Html.TextBoxFor(m => Model.Name, new Dictionary<string, object> { { "class", "form-control" }, { "type", "text" }, { "value", "test" }, { "data-val-required", "This field is required." } })
             </dd>
             <dt>
                 Adresa:
@@ -77,13 +108,13 @@
                 Email:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" } ,  { "placeholder", "exemplu@yahoo.com" }, { "data-val-required", "This field is required." } })
+                @Html.TextBoxFor(m => Model.Email, new Dictionary<string, object> { { "class", "form-control" }, { "type", "email" }, { "placeholder", "exemplu@yahoo.com" }, { "data-val-required", "This field is required." } })
             </dd>
             <dt>
                 Telefon:
             </dt>
             <dd>
-                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, {"placeholder", "07XXXXXXXX"}, { "data-val-required", "This field is required." } })
+                @Html.TextBoxFor(m => Model.Phone, new Dictionary<string, object> { { "class", "form-control" }, { "type", "tel" }, { "placeholder", "07XXXXXXXX" }, { "data-val-required", "This field is required." } })
             </dd>
         </dl>
     </div>
@@ -95,8 +126,11 @@
 </a>
 
 
+<script type="text/javascript">
 
+    $('input[name="Products"]').spinner({ step: 1, min: 0, max: 100 });
 
+</script>
 
 @section scripts
 {
@@ -104,9 +138,10 @@
     <script type="text/javascript">
 
         $(document)
-            .ready(function() {
+            .ready(function () {
+
                 $("#orderanchor")
-                    .click(function(e) {
+                    .click(function (e) {
                         e.preventDefault();
 
                         var form = $("#orderForm");
@@ -127,12 +162,12 @@
                             dataType: "json",
                             data: form.serialize(),
                             url: '/Home/SendOrder',
-                            success: function(data) {
+                            success: function (data) {
                                 $("#orderanchor").removeAttr('disabled');
                                 if (data.result == 'OK') {
                                     toastr.info('Comanda a fost trimisa cu succes.');
                                 } else {
-                                   
+
                                     toastr.error('', data.message);
                                 }
                             }

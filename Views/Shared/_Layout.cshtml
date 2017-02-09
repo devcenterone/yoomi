@@ -8,13 +8,18 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css"/>
-        <link rel="stylesheet" href="~/lib/toastr/toastr.css" />
+        <link rel="stylesheet" href="~/lib/toastr/toastr.css"/>
+        <link rel="stylesheet" href="~/lib/jqueryui/jquery-ui.min.css" />
         <script src="/lib/jquery/dist/jquery.min.js"></script>
         <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
         <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="/lib/toastr/toastr.min.js"></script>
+        <script src="/lib/jqueryui/jquery-ui.min.js"></script>
+
         
+        
+
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -27,8 +32,7 @@
         <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="/lib/toastr/toastr.min.js"></script>
-        
-        
+        <script src="/lib/jqueryui/jquery-ui.min.js"></script>
     </environment>
 </head>
 <body>
@@ -44,8 +48,8 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"></a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="\PDF\ModDeUtilizare.pdf" target="_blank">mod de utilizare</a></li>
+                <ul class="nav navbar-nav">                    
+                    <li><a asp-area="" asp-controller="Home" asp-action="ModDeUtilizare">mod de utilizare</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Comanda">comanda</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">contact</a></li>
                 </ul>

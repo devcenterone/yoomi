@@ -30,9 +30,16 @@ namespace Yoomi.Controllers
             return View();
         }
 
+        public IActionResult ModDeUtilizare()
+        {
+            ViewData["Message"] = "Mod de utilizare.";
+
+            return View();
+        }
+
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "pagina de contact.";
 
             return View();
         }
@@ -47,7 +54,7 @@ namespace Yoomi.Controllers
         public async Task<JsonResult> SendOrder(OrderForm form, FormCollection col)
         {
 
-            if (form.Products == null || !form.Products.Any())
+            if (form.Products == null || !form.Products.Where(x => x > 0).Any())
                 return Json(new { Result = "ERROR", Message = "Alegeti cel putin un produs pt comanda." });
 
             //If model not valid return to form page for validation
@@ -74,11 +81,10 @@ namespace Yoomi.Controllers
             
             mailBody.Append("Produsele:").Append("<---->");
             
-            
-            var index = 1;
-            foreach (var prod in form.Products)
+    
+            for (var i = 0; i < form.Products.Where(x => x > 0).Count(); i++)
             {
-                mailBody.AppendFormat(" {0}. {1}",index++,prod).Append("<---->");
+                mailBody.AppendFormat(" {0}. {1} [{2} buc]",i+1, form.ProductsNm[i], form.Products[i]).Append("<---->");
                 
             }
 
