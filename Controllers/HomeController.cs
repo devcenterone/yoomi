@@ -70,29 +70,30 @@ namespace Yoomi.Controllers
 
             StringBuilder mailBody = new StringBuilder();
 
-            mailBody.AppendFormat("Nume: {0}", form.Name).Append("<---->"); 
-            
+            mailBody.AppendFormat("Nume: {0}", form.Name).Append("<---->");
+
             mailBody.AppendFormat("Adresa: {0}", form.Address).Append("<---->");
-            
+
             mailBody.AppendFormat("Email: {0}", form.Email).Append("<---->");
-            
+
             mailBody.AppendFormat("Telefon: {0}", form.Phone).Append("<---->");
-            
-            
+
+
             mailBody.Append("Produsele:").Append("<---->");
-            
-    
+
+
             for (var i = 0; i < form.Products.Where(x => x > 0).Count(); i++)
             {
-                mailBody.AppendFormat(" {0}. {1} [{2} buc]",i+1, form.ProductsNm[i], form.Products[i]).Append("<---->");
-                
+                mailBody.AppendFormat(" {0}. {1} [{2} buc]", i + 1, form.ProductsNm[i], form.Products[i]).Append("<---->");
+
             }
 
-
-            await SendEmailAsync("c.pop.vaida@gmail.com", mailBody.ToString());
+            var result = await SendEmailAsync("c.pop.vaida@gmail.com", "Comanda Yoomi.shop.ro", mailBody.ToString());
             //await SendEmailAsync("sergiu.barbu@gmail.com", mailBody.ToString());
 
-            return Json(new { Result = "OK" });
+
+
+            return Json(new { Result = (result == "OK" ? "OK" : "ERROR"), Message = result });
         }
 
 
@@ -103,7 +104,7 @@ namespace Yoomi.Controllers
 
             emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
             emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
-            emailMessage.Subject = subject;            
+            emailMessage.Subject = subject;
             emailMessage.Body = new TextPart("plain") { Text = message };
 
 
@@ -119,49 +120,56 @@ namespace Yoomi.Controllers
 
                 await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls).ConfigureAwait(false);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
-                await client.AuthenticateAsync("yoomi.shop.ro@gmail.com", "cristipopvaida");                
+                await client.AuthenticateAsync("yoomi.shop.ro@gmail.com", "cristipopvaida");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             }
-        
+
         }
 
-        public async Task SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
-        {           
-
-            var emailMessage = new MimeMessage();
-            
-            emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
-            //emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
-            emailMessage.To.Add(new MailboxAddress("cristi pop", email));
-            emailMessage.Bcc.Add(new MailboxAddress("sergiu.barbu@gmail.com", "sergiu.barbu@gmail.com"));
-            emailMessage.Subject = subject;
-
-            emailMessage.Body = new TextPart( TextFormat.Plain) { Text = message, };
-
-
-
-            using (var client = new SmtpClient())
+        public async Task<string> SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        {
+            try
             {
-                var credentials = new NetworkCredential
+                var emailMessage = new MimeMessage();
+
+                emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
+                //emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
+                emailMessage.To.Add(new MailboxAddress("cristi pop", email));
+                emailMessage.Bcc.Add(new MailboxAddress("sergiu.barbu@gmail.com", "sergiu.barbu@gmail.com"));
+                emailMessage.Subject = subject;
+
+                emailMessage.Body = new TextPart(TextFormat.Plain) { Text = message, };
+
+
+
+                using (var client = new SmtpClient())
                 {
-                    UserName = "yoomi.shop.ro@gmail.com", // replace with valid value
-                    Password = "cristipopvaida" // replace with valid value
-                };
+                    var credentials = new NetworkCredential
+                    {
+                        UserName = "yoomi.shop.ro@gmail.com", // replace with valid value
+                        Password = "cristipopvaida" // replace with valid value
+                    };
 
-                client.LocalDomain = "yoomi.herokuapp.com";
-                await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
-                client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    client.LocalDomain = "yoomi.herokuapp.com";
+                    await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
 
-                await client.AuthenticateAsync(credentials);
+                    await client.AuthenticateAsync(credentials);
 
-                await client.SendAsync(emailMessage).ConfigureAwait(false);
-                await client.DisconnectAsync(true).ConfigureAwait(false);
-                //You need to add return here
-                //return RedirectToAction("Thanks");
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true).ConfigureAwait(false);
+                    //You need to add return here
+                    //return RedirectToAction("Thanks");
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
 
+            return "OK";
         }
 
 
