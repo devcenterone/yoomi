@@ -135,6 +135,7 @@ namespace Yoomi.Controllers
             emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@gmail.com"));
             //emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
             emailMessage.To.Add(new MailboxAddress("cristi pop", email));
+            emailMessage.Bcc.Add(new MailboxAddress("sergiu.barbu@gmail.com", "sergiu.barbu@gmail.com"));
             emailMessage.Subject = subject;
 
             emailMessage.Body = new TextPart( TextFormat.Plain) { Text = message, };
