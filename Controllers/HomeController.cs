@@ -93,7 +93,7 @@ namespace Yoomi.Controllers
 
 
 
-            return Json(new { Result = (result == "OK" ? "OK" : "ERROR"), Message = result });
+            return Json(new { Result = (result == "OK" ? "OK" : "ERROR"), Message = "Am intampiant probleme tehnice. <br/> Va rugam trimiteti un e-mail cu produsele dorite la comenzi.yoomi@gmail.com sau telefonic la 0727713063" });
         }
 
 
@@ -152,7 +152,7 @@ namespace Yoomi.Controllers
                         Password = "cristipopvaida" // replace with valid value
                     };
 
-                    client.LocalDomain = "yoomi.herokuapp.com";
+                    client.LocalDomain = "yoomi.shop.ro";
                     await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
                     client.AuthenticationMechanisms.Remove("XOAUTH2");
 
