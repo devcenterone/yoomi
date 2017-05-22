@@ -1,5 +1,5 @@
---temp-output:C:\Wordpress\yoomi\Yoomi\src\Yoomi\obj\Release\netcoreapp1.0\
---out:C:\Wordpress\yoomi\Yoomi\src\Yoomi\bin\Release\netcoreapp1.0\Yoomi.dll
+--temp-output:C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\obj\Release\netcoreapp1.0\
+--out:C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\bin\Release\netcoreapp1.0\Yoomi.dll
 --define:RELEASE
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -198,8 +198,8 @@
 --reference:C:\Users\sergiu.barbu\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\sergiu.barbu\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\sergiu.barbu\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Wordpress\yoomi\Yoomi\src\Yoomi\obj\Release\netcoreapp1.0\Yoomidotnet-compile.deps.json",Yoomi.deps.json
-C:\Wordpress\yoomi\Yoomi\src\Yoomi\Program.cs
-C:\Wordpress\yoomi\Yoomi\src\Yoomi\Startup.cs
-C:\Wordpress\yoomi\Yoomi\src\Yoomi\Controllers\HomeController.cs
-C:\Wordpress\yoomi\Yoomi\src\Yoomi\Entity\OrderForm.cs
+--resource:"C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\obj\Release\netcoreapp1.0\Yoomidotnet-compile.deps.json",Yoomi.deps.json
+C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\Program.cs
+C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\Startup.cs
+C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\Controllers\HomeController.cs
+C:\Wordpress\yoomi\Yoomi-SourceCode\src\Yoomi\Entity\OrderForm.cs

@@ -97,7 +97,7 @@ namespace Yoomi.Controllers
         }
 
 
-        public async Task SendEmailAsyncOld(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        public async Task SendEmailAsyncOld02(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
         {
 
             var emailMessage = new MimeMessage();
@@ -128,7 +128,7 @@ namespace Yoomi.Controllers
 
         }
 
-        public async Task<string> SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        public async Task<string> SendEmailAsyncOld01(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
         {
             try
             {
@@ -172,6 +172,91 @@ namespace Yoomi.Controllers
             return "OK";
         }
 
+
+        public async Task<string> SendEmailAsyncOld(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        {
+            try
+            {
+                var emailMessage = new MimeMessage();
+
+                emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@outlook.com"));
+                //emailMessage.To.Add(new MailboxAddress("c.pop.vaida@gmail.com", email));
+                //emailMessage.To.Add(new MailboxAddress("cristi pop", email));
+                emailMessage.To.Add(new MailboxAddress("cristi pop", "sergiu.barbu@gmail.com"));
+                emailMessage.Bcc.Add(new MailboxAddress("sergiu.barbu@gmail.com", "sergiu.barbu@gmail.com"));
+                emailMessage.Subject = subject;
+
+                emailMessage.Body = new TextPart(TextFormat.Plain) { Text = message, };
+
+
+
+                using (var client = new SmtpClient())
+                {
+                    var credentials = new NetworkCredential
+                    {
+                        UserName = "yoomi.shop.ro@outlook.com", // replace with valid value
+                        Password = "1Cristipopvaida2" // replace with valid value
+                    };
+
+                    client.LocalDomain = "yoomi.shop.ro";
+                    await client.ConnectAsync("smtp-mail.outlook.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+
+
+                    await client.AuthenticateAsync(credentials);
+
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true).ConfigureAwait(false);
+                    //You need to add return here
+                    //return RedirectToAction("Thanks");
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
+            return "OK";
+        }
+
+
+        public async Task<string> SendEmailAsync(string email, string subject = "Comanda Yoomi.shop.ro", string message = "")
+        {
+            try
+            {
+
+                var emailMessage = new MimeMessage();
+
+                emailMessage.From.Add(new MailboxAddress("Yoomi.shop.ro", "yoomi.shop.ro@outlook.com"));
+
+                emailMessage.To.Add(new MailboxAddress("", email));
+                emailMessage.Bcc.Add(new MailboxAddress("sergiu.barbu@gmail.com", "sergiu.barbu@gmail.com"));
+
+                emailMessage.Subject = subject;
+                emailMessage.Body = new TextPart("plain") { Text = message };
+
+                using (var client = new SmtpClient())
+                {
+                    var credentials = new NetworkCredential
+                    {
+                        UserName = "yoomi.shop.ro@outlook.com", // replace with valid value
+                        Password = "1Cristipopvaida2" // replace with valid value
+                    };
+                    client.LocalDomain = "yoomi.shop.ro";
+
+                    await client.ConnectAsync("smtp.live.com", 587, SecureSocketOptions.Auto).ConfigureAwait(false);
+                    await client.AuthenticateAsync(credentials);
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true).ConfigureAwait(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
+            return "OK";
+        }
 
 
     }
