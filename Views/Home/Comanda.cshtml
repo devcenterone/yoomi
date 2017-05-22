@@ -124,6 +124,7 @@
 <a id="orderanchor" class="btn btn-default">
     Comanda acum
 </a>
+&nbsp;&nbsp;<div id="spinner" class="spinnerclasicnomargin" style="display: none;"></div>
 
 
 <script type="text/javascript">
@@ -156,6 +157,7 @@
 
 
                         $("#orderanchor").attr('disabled', 'disabled');
+                        $('.spinnerclasicnomargin').show();
                         $.ajax({
                             type: 'POST',
                             //contentType: 'application/json; charset=utf-8',
@@ -163,6 +165,7 @@
                             data: form.serialize(),
                             url: '/Home/SendOrder',
                             success: function (data) {
+                                $('.spinnerclasicnomargin').hide();
                                 $("#orderanchor").removeAttr('disabled');
                                 if (data.result == 'OK') {
                                     toastr.info('Comanda a fost trimisa cu succes.');
