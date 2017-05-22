@@ -80,11 +80,13 @@ namespace Yoomi.Controllers
 
 
             mailBody.Append("Produsele:").Append("<---->");
+            int index = 0;
 
-
-            for (var i = 0; i < form.Products.Where(x => x > 0).Count(); i++)
+            
+            for (var i = 0; i < form.Products.Count(); i++)
             {
-                mailBody.AppendFormat(" {0}. {1} [{2} buc]", i + 1, form.ProductsNm[i], form.Products[i]).Append("<---->");
+                if (form.Products[i] > 0)
+                    mailBody.AppendFormat(" {0}. {1} [{2} buc]", index++, form.ProductsNm[i], form.Products[i]).Append("<---->");
 
             }
 
